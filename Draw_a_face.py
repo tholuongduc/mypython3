@@ -1,0 +1,25 @@
+import turtle
+
+turtle.pensize (5)
+turtle.pencolor ("red")
+turtle.circle (100)
+turtle.penup()
+turtle.goto(-40,110)
+turtle.pendown()
+turtle.fillcolor("black")
+turtle.begin_fill()
+turtle.circle(20)
+turtle.penup()
+turtle.goto(40,110)
+turtle.pendown()
+turtle.circle(20)
+turtle.end_fill()
+turtle.penup()
+turtle.goto(40,50)
+turtle.pendown()
+turtle.right(90)
+for i in range(120):
+    turtle.forward(1)
+    turtle.right(1)
+
+turtle.done()
