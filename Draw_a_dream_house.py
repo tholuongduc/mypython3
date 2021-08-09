@@ -1,5 +1,6 @@
 #Draw your dream house using turtle
 import turtle
+turtle.bgcolor("light blue")
 turtle.shape("turtle")
 turtle.speed(10)
 turtle.pensize(3)
