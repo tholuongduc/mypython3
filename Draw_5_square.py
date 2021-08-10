@@ -2,7 +2,7 @@
 import turtle
 import random
 
-color = ['black', 'red', 'blue', 'green', 'pink']
+color = ['black', 'red', 'blue', 'green', 'pink', 'orange']
 
 turtle.speed(10)
 turtle.pensize(3)
