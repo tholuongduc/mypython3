@@ -1,0 +1,173 @@
+#DAY 5: Modify your dream house
+import turtle
+import math
+
+#Background color
+turtle.bgcolor("yellow")
+
+turtle.shape("turtle")
+turtle.speed(15)
+
+#Define a function to draw front side (rectangle)
+def drawRectangle (t, width, height, color):
+    t.fillcolor(color)
+    t.begin_fill()
+    for i in range(2):
+        t.forward(width)
+        t.left(90)
+        t.forward(height)
+        t.left(90)
+    t.end_fill()
+#Define a function to draw right side(Parallelogram)
+def drawParallelogram(t, width, height, color):
+    t.fillcolor(color)
+    t.begin_fill()
+    t.left(30)
+    t.forward(width)
+    t.left(60)
+    t.forward(height)
+    t.left(120)
+    t.forward(width)
+    t.left(60)
+    t.forward(height)
+    t.left(90)
+    t.end_fill()
+#Define a function to draw roof shape(Triangle)
+def drawTriangle(t, length, color):
+  t.fillcolor(color)
+  t.begin_fill()
+  t.forward(length)
+  t.left(135)
+  t.forward(length / math.sqrt(2))
+  t.left(90)
+  t.forward(length / math.sqrt(2))
+  t.left(135)
+  t.end_fill()
+
+#Draw the front of the house
+turtle.penup()
+turtle.goto(-200,-200)
+turtle.pendown()
+drawRectangle(turtle, 200, 200, "orange")
+#Draw the main door
+turtle.penup()
+turtle.goto(-175,-200)
+turtle.pendown()
+drawRectangle(turtle, 150, 100, "green")
+#Draw the front roof
+turtle.penup()
+turtle.goto(-200,0)
+turtle.pendown()
+drawTriangle(turtle, 200, "red")
+#Draw the right side
+turtle.penup()
+turtle.goto(0,-200)
+turtle.pendown()
+drawParallelogram(turtle, 150, 200, "orange")
+#Draw the windows
+turtle.penup()
+turtle.goto(50,-100)
+turtle.pendown()
+drawParallelogram(turtle, 50, 40, "green")
+#Draw the side roof
+turtle.penup()
+turtle.goto(-100,100)
+turtle.pendown()
+turtle.fillcolor("lightblue")
+turtle.begin_fill()
+turtle.left(30)
+turtle.forward(150)
+turtle.goto(129.90,75)
+turtle.goto(0,0)
+turtle.end_fill()
+#Draw the sun
+turtle.penup()
+turtle.goto(300,300)
+turtle.setheading(0)
+turtle.pendown()
+for i in range (4):
+    turtle.left(45)
+    turtle.forward(80)
+    turtle.goto(300,300)
+    turtle.left(45)
+    turtle.forward(100)
+    turtle.goto(300,300)
+turtle.penup()
+turtle.fillcolor("red")
+turtle.begin_fill()
+turtle.goto(300,250)
+turtle.pendown()
+turtle.circle(50)
+turtle.end_fill()
+#Draw tree
+turtle.penup()
+turtle.goto(400,-300)
+turtle.pendown()
+turtle.fillcolor("brown")
+turtle.begin_fill()
+drawRectangle (turtle, 50, 100, "brown")
+turtle.penup()
+turtle.goto(375,-200)
+turtle.pendown()
+for i in range (3):
+    drawTriangle(turtle, 100, "green")
+    turtle.penup()
+    turtle.forward(50)
+    turtle.left(90)
+    turtle.forward(50)
+    turtle.left(90)
+    turtle.forward(50)
+    turtle.pendown()
+    turtle.setheading(0)
+# Put down some labels
+turtle.color("black")
+turtle.penup()
+turtle.goto(-250, -150)
+turtle.pendown()
+turtle.write("House", "20pt bold")
+turtle.penup()
+turtle.goto(300, -300)
+turtle.pendown()
+turtle.write("Tree", "20pt bold")
+turtle.penup()
+turtle.goto(130, 250)
+turtle.pendown()
+turtle.write("Sun", "20pt bold")
+#Draw the cloud
+turtle.penup()
+turtle.goto(400,200)
+turtle.setheading(0)
+turtle.pendown()
+turtle.fillcolor("white")
+turtle.begin_fill()
+turtle.forward(160)
+turtle.left(90)
+turtle.circle(50,180)
+turtle.setheading(90)
+turtle.circle(30,180)
+turtle.end_fill()
+
+turtle.penup()
+turtle.goto(220,170)
+turtle.setheading(0)
+turtle.pendown()
+turtle.fillcolor("white")
+turtle.begin_fill()
+turtle.forward(160)
+turtle.left(90)
+turtle.circle(50,180)
+turtle.setheading(90)
+turtle.circle(30,180)
+turtle.end_fill()
+
+
+
+turtle.penup()
+turtle.goto(-100,-300)
+turtle.setheading(90)
+turtle.done()
+
+
+
+
+
