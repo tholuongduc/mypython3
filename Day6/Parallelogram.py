@@ -1,0 +1,15 @@
+import turtle
+#Define a function to draw right side(Parallelogram)
+def drawParallelogram(t, width, height, color):
+    t.fillcolor(color)
+    t.begin_fill()
+    t.left(30)
+    t.forward(width)
+    t.left(60)
+    t.forward(height)
+    t.left(120)
+    t.forward(width)
+    t.left(60)
+    t.forward(height)
+    t.left(90)
+    t.end_fill()
