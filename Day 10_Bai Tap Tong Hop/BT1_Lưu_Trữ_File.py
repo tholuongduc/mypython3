@@ -7,8 +7,9 @@ n = int(input("Hãy nhập kích thước file trong đơn vị byte (n là số
 
 a = n // 4096
 b = n % 4096
-
+kb = 0
 if b == 0:
-    print("Dung lượng file chiếm là: " + str(a*4) + "KB")
+    kb = a * 4
 else:
-    print("Dung lượng file chiếm là: " + str((a+1)*4) + "KB")
+    kb = (a+1)*4
+print("Dung lượng file chiếm là: ", kb, "KB")
