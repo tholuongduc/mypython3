@@ -17,7 +17,6 @@ for i in range (1, length_s // 2 + 1):
     sb = str(s[0:i])
     length_sb = len(sb)
     j = length_s / i
-#    se = str(s[i:i + length_sb])
     if j.is_integer():
         se = sb * int(j)
         if s == se:
