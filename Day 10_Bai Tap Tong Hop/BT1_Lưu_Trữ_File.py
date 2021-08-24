@@ -7,9 +7,14 @@ n = int(input("Hãy nhập kích thước file trong đơn vị byte (n là số
 
 a = n // 4096
 b = n % 4096
-kb = 0
-if b == 0:
-    kb = a * 4
-else:
-    kb = (a+1)*4
+#C1:Su dung If-else:
+#kb = 0
+#if b == 0:
+#    kb = a * 4
+#else:
+#    kb = (a+1)*4
+#print("Dung lượng file chiếm là: ", kb, "KB")
+
+#C2:Su dung toan tu 3 ngoi
+kb = (a * 4) if (n % 4096 == 0) else (a+1)*4
 print("Dung lượng file chiếm là: ", kb, "KB")
