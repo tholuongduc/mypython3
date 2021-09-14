@@ -18,10 +18,11 @@ def matrix():
 #Define a function to merge 2-dimensional tuple
 def sum_row_element(lst):
     raw_list = []
-    for i in range(len(lst)):
+    length = len(lst[0])
+    for i in range(length):
         sum = 0
-        for j in lst[i]:
-            sum += j
+        for j in range(len(lst)):
+            sum += lst[j][i]
         raw_list.append(sum)
     return raw_list
 
