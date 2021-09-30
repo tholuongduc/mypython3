@@ -4,7 +4,7 @@ from tkinter.ttk import *
 def BMI_Calculate():
     my_weight = weight.get()
     my_height = height.get()
-    BMI = float(my_weight) / (float(my_height) * 2)
+    BMI = float(my_weight) / (float(my_height) ** 2)
     result.config(text=BMI)
     if BMI > 40:
         description = "Béo phì cấp độ III"
