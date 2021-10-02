@@ -1,16 +1,33 @@
 from tkinter import *
 
 expression = ""
+functional = ""
+save_expression = ""
+final_expression = ""
 #press number
 def press(num):
     global expression
     expression = expression + str(num)
     final_result.set(expression)
 
+def press_func(func):
+    global functional
+    global expression
+    global save_expression
+    functional = functional + str(func)
+    save_expression = expression
+    expression = ""
+
 def clear():
     global expression
+    global functional
+    global save_expression
+    global final_expression
     expression = ""
-    final_result.set(expression)
+    functional = ""
+    save_expression = ""
+    final_expression = ""
+    final_result.set("")
 
 def press_negative():
     global expression
@@ -24,13 +41,20 @@ def press_percent():
 
 def press_equal():
     try:
+        global save_expression
         global expression
-        total = str(eval(expression))
+        global functional
+        global final_expression
+        final_expression += save_expression + functional + expression
+        total = str(eval(final_expression))
         final_result.set(total)
-        expression = ""
+        save_expression = ""
     except:
         final_result.set("Error!")
         expression = ""
+        save_expression = ""
+        functional = ""
+        final_expression = ""
 
 
 cal = Tk()
@@ -40,7 +64,7 @@ cal.geometry("250x250")
 #Result location
 final_result = StringVar()
 lb_result = Entry(cal, textvariable=final_result, bd=5, justify="right")
-lb_result.grid(columnspan=5, ipadx=16)
+lb_result.grid(columnspan=6, ipadx=16)
 
 #Create number board
 clear_button = Button(cal, text="AC", width=4, height=2,borderwidth=2, fg="white", bg="black", command=lambda: clear())
@@ -49,7 +73,7 @@ negative_button = Button(cal, text="+/-", width=4, height=2,borderwidth=2, fg="w
 negative_button.grid(row=1, column=2)
 percent_button = Button(cal, text="%", width=4, height=2,borderwidth=2, fg="white", bg="black", command=lambda :press_percent())
 percent_button.grid(row=1, column=3)
-division = Button(cal, text="/", width=4, height=2,borderwidth=2, fg="white", bg="orange", command=lambda: press("/"))
+division = Button(cal, text="/", width=4, height=2,borderwidth=2, fg="white", bg="orange", command=lambda: press_func("/"))
 division.grid(row=1, column=4)
 number_9 = Button(cal, text="9", width=4, height=2,borderwidth=2, fg="white", bg="gray", command=lambda: press(9))
 number_9.grid(row=2, column=3)
@@ -73,11 +97,11 @@ number_0 = Button(cal, text="0", width=10, height=2,borderwidth=2, fg="white", b
 number_0.grid(row=5, columnspan=3)
 dot = Button(cal, text=".", width=4, height=2,borderwidth=2, fg="white", bg="gray", command=lambda: press("."))
 dot.grid(row=5, column=3)
-multi = Button(cal, text="x", width=4, height=2,borderwidth=2, fg="white", bg="orange", command=lambda: press("*"))
+multi = Button(cal, text="x", width=4, height=2,borderwidth=2, fg="white", bg="orange", command=lambda: press_func("*"))
 multi.grid(row=2, column=4)
-subtraction = Button(cal, text="-", width=4, height=2,borderwidth=2, fg="white", bg="orange", command=lambda: press("-"))
+subtraction = Button(cal, text="-", width=4, height=2,borderwidth=2, fg="white", bg="orange", command=lambda: press_func("-"))
 subtraction.grid(row=3, column=4)
-plus = Button(cal, text="+", width=4, height=2,borderwidth=2, fg="white", bg="orange", command=lambda: press("+"))
+plus = Button(cal, text="+", width=4, height=2,borderwidth=2, fg="white", bg="orange", command=lambda: press_func("+"))
 plus.grid(row=4, column=4)
 equal = Button(cal, text="=", width=4, height=2,borderwidth=2, fg="white", bg="orange",  command=lambda: press_equal())
 equal.grid(row=5, column=4)
